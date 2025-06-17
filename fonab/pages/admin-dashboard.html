@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FONAB Polytechnic</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="FONAB Polytechnic Logo">
+                <h1>FONAB Polytechnic</h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="register.html">Registration</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="#" id="adminLogoutBtn" class="btn btn-login">Logout <i class="fas fa-sign-out-alt"></i></a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero dashboard-hero">
+            <div class="container">
+                <h2 id="adminWelcomeMessage">Welcome, Admin!</h2>
+                <p>Manage school operations and student applications.</p>
+            </div>
+        </section>
+
+        <section class="dashboard-content admin-dashboard-content">
+            <div class="container">
+                <div class="admin-controls-grid">
+                    <aside class="admin-sidebar dashboard-card">
+                        <h3><i class="fas fa-tools"></i> Admin Panel</h3>
+                        <ul class="admin-nav-tabs compact-list">
+                            <li><a href="#" data-tab="students" class="active"><i class="fas fa-users"></i> Student Registrations</a></li>
+                            <li><a href="#" data-tab="lecturers"><i class="fas fa-chalkboard-teacher"></i> Manage Lecturers</a></li>
+                            <li><a href="#" data-tab="departments"><i class="fas fa-building"></i> Manage Departments</a></li>
+                            <li><a href="#" data-tab="reports"><i class="fas fa-chart-line"></i> Reports (Coming Soon)</a></li>
+                        </ul>
+                    </aside>
+
+                    <div class="admin-main-content">
+                        <div id="students" class="admin-tab-content active">
+                            <h3><i class="fas fa-users"></i> Student Registrations</h3>
+                            <div class="filter-controls">
+                                <label for="studentFilterSchool">Filter by School:</label>
+                                <select id="studentFilterSchool">
+                                    <option value="all">All Schools</option>
+                                    </select>
+                                <label for="studentFilterStatus">Filter by Status:</label>
+                                <select id="studentFilterStatus">
+                                    <option value="all">All</option>
+                                    <option value="pending">Pending Approval</option>
+                                    <option value="approved">Approved</option>
+                                    <option value="declined">Declined</option>
+                                </select>
+                                <button class="btn btn-secondary" id="resetStudentFilters"><i class="fas fa-sync-alt"></i> Reset Filters</button>
+                            </div>
+                            <div id="studentTableContainer" class="table-container">
+                                <p class="loading-message">Loading student data...</p>
+                            </div>
+                        </div>
+
+                        <div id="lecturers" class="admin-tab-content">
+                            <h3><i class="fas fa-chalkboard-teacher"></i> Manage Lecturers</h3>
+                            <button id="addLecturerBtn" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Lecturer</button>
+                            <div id="lecturerTableContainer" class="table-container">
+                                <p class="loading-message">Loading lecturer data...</p>
+                            </div>
+                        </div>
+
+                        <div id="departments" class="admin-tab-content">
+                            <h3><i class="fas fa-building"></i> Manage Departments</h3>
+                            <div id="departmentListContainer" class="list-container">
+                                <p class="loading-message">Loading department data...</p>
+                            </div>
+                        </div>
+
+                        <div id="reports" class="admin-tab-content">
+                            <h3><i class="fas fa-chart-line"></i> Reports</h3>
+                            <p>Detailed reports and analytics will be available here soon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="editStudentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Edit Student Information</h2>
+            <form id="editStudentForm">
+                <input type="hidden" id="editStudentMatricule">
+                <div class="form-group">
+                    <label for="editFullName">Full Name:</label>
+                    <input type="text" id="editFullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEmail">Email:</label>
+                    <input type="email" id="editEmail" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="editPhone">Phone:</label>
+                    <input type="tel" id="editPhone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="editSchool">School:</label>
+                    <select id="editSchool" name="school" required>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="editField">Field of Study:</label>
+                    <select id="editField" name="field" required>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="editProgramType">Program Type:</label>
+                    <select id="editProgramType" name="programType" required>
+                        <option value="HND">HND</option>
+                        <option value="Degree">Degree</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="editApprovedStatus">Approval Status:</label>
+                    <select id="editApprovedStatus" name="approved" required>
+                        <option value="true">Approved</option>
+                        <option value="false">Pending</option>
+                        <option value="declined">Declined</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="addEditLecturerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="lecturerModalTitle">Add New Lecturer</h2>
+            <form id="lecturerForm">
+                <input type="hidden" id="lecturerIdHidden">
+                <div class="form-group">
+                    <label for="lecturerName">Name:</label>
+                    <input type="text" id="lecturerName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="lecturerEmail">Email:</label>
+                    <input type="email" id="lecturerEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="lecturerPhone">Phone:</label>
+                    <input type="tel" id="lecturerPhone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="lecturerDepartment">Department:</label>
+                    <select id="lecturerDepartment" name="department" required>
+                        <option value="">Select Department</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="lecturerPassword">Password:</label>
+                    <input type="password" id="lecturerPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Lecturer</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 FONAB Polytechnic. All rights reserved. Affiliated with the University of Bamenda.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

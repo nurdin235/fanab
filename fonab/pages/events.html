@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - FONAB Polytechnic</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="FONAB Polytechnic Logo">
+                <h1>FONAB Polytechnic</h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="register.html">Registration</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html" class="active">Events</a></li>
+                    <li><a href="login.html" class="btn btn-login">Login</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero events-hero">
+            <div class="container">
+                <h2>Upcoming Events & Deadlines</h2>
+                <p>Stay informed about important dates and activities at FONAB Polytechnic.</p>
+            </div>
+        </section>
+
+        <section class="events-listing-section">
+            <div class="container">
+                <div class="event-filters">
+                    <label for="eventFilterCategory">Filter by Category:</label>
+                    <select id="eventFilterCategory">
+                        <option value="all">All Categories</option>
+                        <option value="academic">Academic</option>
+                        <option value="social">Social</option>
+                        <option value="admissions">Admissions</option>
+                        <option value="deadline">Deadline</option>
+                        <option value="holiday">Holiday</option>
+                    </select>
+
+                    <label for="eventFilterMonth">Filter by Month:</label>
+                    <select id="eventFilterMonth">
+                        <option value="all">All Months</option>
+                        </select>
+                    <button class="btn btn-secondary" id="resetEventFilters"><i class="fas fa-sync-alt"></i> Reset Filters</button>
+                </div>
+
+                <div id="eventsContainer" class="events-grid">
+                    <p class="loading-message">Loading events...</p>
+                    </div>
+                <p id="noEventsMessage" class="no-results-message hidden">No events found matching your criteria.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 FONAB Polytechnic. All rights reserved. Affiliated with the University of Bamenda.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

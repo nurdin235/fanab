@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - FONAB Polytechnic</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="FONAB Polytechnic Logo">
+                <h1>FONAB Polytechnic</h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="programs.html" class="active">Programs</a></li>
+                    <li><a href="register.html">Registration</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="login.html" class="btn btn-login">Login</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero programs-hero">
+            <div class="container">
+                <h2>Our Academic Programs</h2>
+                <p>Explore the diverse schools and fields of study offered at FONAB Polytechnic, affiliated with the University of Bamenda.</p>
+            </div>
+        </section>
+
+        <section class="programs-list">
+            <div class="container" id="schools-container">
+                <div class="loading-message">Loading programs...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 FONAB Polytechnic. All rights reserved. Affiliated with the University of Bamenda.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        // Specific JavaScript for the Programs page
+        document.addEventListener('DOMContentLoaded', () => {
+            const schoolsContainer = document.getElementById('schools-container');
+            const schoolData = getLocalStorageData('schools'); // Access the helper function from app.js
+
+            if (Object.keys(schoolData).length === 0) {
+                schoolsContainer.innerHTML = '<p class="no-data-message">No program data available. Please check local storage initialization.</p>';
+                return;
+            }
+
+            schoolsContainer.innerHTML = ''; // Clear loading message
+
+            for (const schoolName in schoolData) {
+                const fields = schoolData[schoolName];
+
+                const schoolElement = document.createElement('div');
+                schoolElement.classList.add('school-card');
+
+                const schoolHeader = document.createElement('div');
+                schoolHeader.classList.add('school-header');
+                schoolHeader.innerHTML = `<h3>${schoolName}</h3><i class="fas fa-chevron-down expand-icon"></i>`;
+                
+                const fieldsList = document.createElement('ul');
+                fieldsList.classList.add('fields-list');
+                fields.forEach(field => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = field;
+                    fieldsList.appendChild(listItem);
+                });
+
+                schoolElement.appendChild(schoolHeader);
+                schoolElement.appendChild(fieldsList);
+                schoolsContainer.appendChild(schoolElement);
+
+                // Add event listener for expand/collapse
+                schoolHeader.addEventListener('click', () => {
+                    schoolElement.classList.toggle('expanded');
+                    const icon = schoolHeader.querySelector('.expand-icon');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

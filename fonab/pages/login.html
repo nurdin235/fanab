@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FONAB Polytechnic</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="FONAB Polytechnic Logo">
+                <h1>FONAB Polytechnic</h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="register.html">Registration</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="login.html" class="btn btn-login active">Login</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero login-hero">
+            <div class="container">
+                <h2>Login to Your Account</h2>
+                <p>Access your personalized dashboard as a student, lecturer, or administrator.</p>
+            </div>
+        </section>
+
+        <section class="login-form-section">
+            <div class="container">
+                <form id="loginForm" class="login-form">
+                    <h3>Welcome Back!</h3>
+                    <div class="form-group">
+                        <label for="username">Name / ID / Matricule:</label>
+                        <input type="text" id="username" name="username" required>
+                        <div class="error-message" id="usernameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                        <div class="error-message" id="passwordError"></div>
+                    </div>
+                    <div class="form-group type-selection">
+                        <label>Login As:</label>
+                        <div class="radio-group">
+                            <input type="radio" id="loginStudent" name="userType" value="student" checked required>
+                            <label for="loginStudent">Student</label>
+                            <input type="radio" id="loginLecturer" name="userType" value="lecturer">
+                            <label for="loginLecturer">Lecturer</label>
+                            <input type="radio" id="loginAdmin" name="userType" value="admin">
+                            <label for="loginAdmin">Admin</label>
+                        </div>
+                        <div class="error-message" id="userTypeError"></div>
+                    </div>
+                    <div id="generalError" class="error-message general-error"></div>
+                    <button type="submit" class="btn btn-primary login-btn">Login</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 FONAB Polytechnic. All rights reserved. Affiliated with the University of Bamenda.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

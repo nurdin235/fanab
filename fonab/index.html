@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - FONAB Polytechnic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="FONAB Polytechnic Logo">
+                <h1>FONAB Polytechnic</h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="pages/programs.html">Programs</a></li>
+                    <li><a href="pages/register.html">Registration</a></li>
+                    <li><a href="pages/about.html">About Us</a></li>
+                    <li><a href="pages/events.html">Events</a></li>
+                    <li><a href="pages/contact.html">Contact Us</a></li>
+                    <li><a href="pages/login.html" class="btn btn-login">Login</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Your Future Starts Here at FONAB Polytechnic</h2>
+                    <p>Unlock your potential with hands-on, industry-focused education. Join a community dedicated to innovation and excellence.</p>
+                    <a href="pages/register.html" class="btn btn-primary hero-btn">Apply Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="pages/programs.html" class="btn btn-secondary hero-btn">Explore Programs <i class="fas fa-graduation-cap"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-tools"></i>
+                        <h3>Practical Skills</h3>
+                        <p>Gain hands-on experience in cutting-edge labs and workshops, preparing you for real-world challenges.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-award"></i>
+                        <h3>Accredited Programs</h3>
+                        <p>Our programs are affiliated with the University of Bamenda, ensuring quality and recognition.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Career Readiness</h3>
+                        <p>We focus on employability, equipping you with the skills demanded by today's industries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="programs-overview-section">
+            <div class="container">
+                <h2>Our Diverse Programs</h2>
+                <p class="section-description">Choose from a wide range of Higher National Diploma (HND) and Degree programs designed for career success.</p>
+                <div id="featuredProgramsContainer" class="programs-grid">
+                    <p class="loading-message">Loading programs...</p>
+                </div>
+                <div class="text-center">
+                    <a href="pages/programs.html" class="btn btn-primary-outline">View All Programs <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="upcoming-events-section">
+            <div class="container">
+                <h2>Upcoming Events</h2>
+                <p class="section-description">Stay updated with important dates, academic deadlines, and campus activities.</p>
+                <div id="homePageEventsContainer" class="events-grid">
+                    <p class="loading-message">Loading upcoming events...</p>
+                    </div>
+                <p id="homeNoEventsMessage" class="no-results-message hidden">No upcoming events at the moment. Check back soon!</p>
+                <div class="text-center">
+                    <a href="pages/events.html" class="btn btn-secondary-outline">View All Events <i class="fas fa-calendar-alt"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="call-to-action-section">
+            <div class="container">
+                <h2>Ready to Start Your Journey?</h2>
+                <p>Join FONAB Polytechnic and transform your ambitions into achievements. Apply today and become part of our vibrant academic community.</p>
+                <a href="pages/register.html" class="btn btn-accent-fill">Register Now! <i class="fas fa-user-plus"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 FONAB Polytechnic. All rights reserved. Affiliated with the University of Bamenda.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
